@@ -1,26 +1,27 @@
 import { useState } from "react";
 
 const ToggleChallenge = () => {
-  const [isTrue, setIsTrue] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
 
-  const handleClick = () => {
-    isTrue ? setIsTrue(false) : setIsTrue(true);
+  const toggleAlert = () => {
+    if (showAlert) {
+      setShowAlert(false);
+      return;
+    }
+    setShowAlert(true);
   };
+
   return (
     <div>
-      <button className="btn" onClick={handleClick}>
+      <button className="btn" onClick={toggleAlert}>
         Toggle
       </button>
-      {isTrue ? <SomeComponent /> : <h2>Hello</h2>}
+      {showAlert && <Alert />}
     </div>
   );
 };
 
-const SomeComponent = () => {
-  return (
-    <div>
-      <h2>Render the component</h2>
-    </div>
-  );
+const Alert = () => {
+  return <div className="alert alert-danger">hello world</div>;
 };
 export default ToggleChallenge;
