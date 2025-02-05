@@ -21,7 +21,9 @@ const UserChallenge = () => {
       ) : (
         <div>
           <h4>Please login</h4>
-          <button className="btn" onClick={login}>Login</button>
+          <button className="btn" onClick={login}>
+            Login
+          </button>
         </div>
       )}
     </div>
